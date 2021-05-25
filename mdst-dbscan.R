@@ -10,14 +10,13 @@
 # y     = y-axis coordinate of point data                              #
 # time  = time coordinate of point data                                #
 # value = additional attributes of point data for clustering           #
-# eps = distance minimum for longitude and latitude                    #
-# eps2 =  distance minimum for date                                    #
+# eps = distance maximum for longitude and latitude                    #
+# eps2 =  distance maximum for date                                    #
 # eps3 = distance maximum for value                                    #
 # minpts = number of points to consider a cluster                      #
 ########################################################################
 
-mdstdbscan <- function (traj, 
-                        x, 
+mdstdbscan <- function (x, 
                         y, 
                         time,
                         value, 
@@ -103,8 +102,6 @@ mdstdbscan <- function (traj,
     if (!length(unclass))
       break
   }
-  
-  
   
   if (any(cv == (-1))) {
     cv[cv == (-1)] <- 0
