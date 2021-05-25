@@ -24,9 +24,7 @@ mdstdbscan <- function (x,
                         eps2, 
                         eps3, 
                         minpts) { 
-  
-  countmode = 1:length(x)
-  seeds = TRUE
+
   
   distdata <- cbind.data.frame(x, y)
   time <- time
@@ -106,13 +104,11 @@ mdstdbscan <- function (x,
   if (any(cv == (-1))) {
     cv[cv == (-1)] <- 0
   }
-  out <- list(cluster = cv, eps = eps, 
+  result <- list(cluster = cv, eps = eps, 
               eps2 = eps2, eps3 = eps3,
               minpts = minpts, density = classn)
   rm(classn)
-  if (seeds && cn > 0) {
-    out$isseed <- isseed
-  }
-  class(out) <- "mdst-dbscan"
-  return(out)
+
+  class(result) <- "mdst-dbscan"
+  return(result)
 }
