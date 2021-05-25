@@ -29,7 +29,7 @@ data(Chameleon)
 
 tchamel5 <- chameleon_ds5
 
-## adding time varaible to Chameleon data set
+## adding time variable to Chameleon data set
 tchamel5[which(tchamel5$x < 170), 3] <- 1
 tchamel5[which(tchamel5$x >= 170 & tchamel5$x < 270), 3] <- 2
 tchamel5[which(tchamel5$x >= 270 & tchamel5$x < 420), 3] <- 3
@@ -39,7 +39,7 @@ tchamel5[which(tchamel5$x >= 680 & tchamel5$x < 900), 3] <- 6
 
 plot(tchamel5[, 1:2], col = tchamel5$V3)
 
-## adding additional varaible to Chameleon data set
+## adding additional variable to Chameleon data set
 x.ord <- order(tchamel5$x)
 
 tchamel5[x.ord[1:1000], 4] <- rnorm(1000, mean = 100, sd = 30)
@@ -56,5 +56,5 @@ result <- mdstdbscan(x = tchamel5$x, y = tchamel5$y, time = tchamel5$V3,
                      value = tchamel5[, 4], eps = 10, eps2 = 0.5, eps3 = 10,
                      minpts = 8)
 
-## simple visualization
+## simple visualization of result
 plot(tchamel5[, 1:2], col = result$cluster)
