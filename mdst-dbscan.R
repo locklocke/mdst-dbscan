@@ -6,8 +6,10 @@
 
 ########################################################################
 # INPUTS :                                                             #
-# traj = traj gps (x, y and time)                                      #
-# value = certain value for clustering                                 #
+# x     = x-axis coordinate of point data                              #                                  
+# y     = y-axis coordinate of point data                              #
+# time  = time coordinate of point data                                #
+# value = additional attributes of point data for clustering           #
 # eps = distance minimum for longitude and latitude                    #
 # eps2 =  distance minimum for date                                    #
 # eps3 = distance maximum for value                                    #
