@@ -12,15 +12,14 @@ for(i in seq(50, 10000, by = 50)){
   y.cord <- c(rnorm(i))
   time.cord <- c(rnorm(i))
   add.value <- c(rnorm(i))
+}
 
-  starttime <- Sys.time()
-  ww1 <- mdstdbscan(x = x.cord, y = y.cord,
-                    time = time.cord, value = add.value,
-                    eps = 0.5, eps2 = 0.5, eps3 = 0.5, minpts = 10)
-  endtime <- Sys.time()
-  cal.time <- endtime - starttime
-  time.table[i/50, 1] <- cal.time
-}  
+starttime <- Sys.time()
+ww1 <- mdstdbscan(x = x.cord, y = y.cord,time = time.cord, value = add.value,eps = 0.5, eps2 = 0.5, eps3 = 0.5, minpts = 10)
+endtime <- Sys.time()
+cal.time <- endtime - starttime
+time.table[i/50, 1] <- cal.time
+ 
 
 ## verification for Chameleon data set
 library(seriation)
